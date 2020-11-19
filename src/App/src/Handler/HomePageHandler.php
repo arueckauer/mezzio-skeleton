@@ -66,7 +66,7 @@ class HomePageHandler implements RequestHandlerInterface
                 $data['containerName'] = 'PHP-DI';
                 $data['containerDocs'] = 'http://php-di.org';
                 break;
-            case 'Chubbyphp\Container\Container':
+            case 'Chubbyphp\Container\MinimalContainer':
                 $data['containerName'] = 'Chubbyphp Container';
                 $data['containerDocs'] = 'https://github.com/chubbyphp/chubbyphp-container';
                 break;
