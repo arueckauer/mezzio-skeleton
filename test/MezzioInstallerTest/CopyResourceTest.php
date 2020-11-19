@@ -32,8 +32,8 @@ class CopyResourceTest extends OptionalPackagesTestCase
 
     public function testTargetFileDoesNotExist()
     {
-        $this->assertFalse($this->project->hasChild('data'));
-        $this->assertFalse($this->project->hasChild('data/target.php'));
+        self::assertFalse($this->project->hasChild('data'));
+        self::assertFalse($this->project->hasChild('data/target.php'));
     }
 
     public function testResourceIsCopiedIfItDoesNotExist()
@@ -42,9 +42,9 @@ class CopyResourceTest extends OptionalPackagesTestCase
 
         $installer->copyResource('config.php', 'data/target.php');
 
-        $this->assertTrue($this->project->hasChild('data'));
-        $this->assertTrue($this->project->hasChild('data/target.php'));
-        $this->assertFileEquals(
+        self::assertTrue($this->project->hasChild('data'));
+        self::assertTrue($this->project->hasChild('data/target.php'));
+        self::assertFileEquals(
             $this->packageRoot . '/src/MezzioInstaller/config.php',
             vfsStream::url('project-root/data/target.php')
         );
@@ -57,14 +57,14 @@ class CopyResourceTest extends OptionalPackagesTestCase
             ->at($this->project)
             ->setContent('TEST');
 
-        $this->assertTrue($this->project->hasChild('data/target.php'));
+        self::assertTrue($this->project->hasChild('data/target.php'));
 
         // Copy file (should not copy file)
         $installer = $this->createOptionalPackages($this->projectRoot);
         $installer->copyResource('config.php', 'data/target.php');
 
-        $this->assertTrue($this->project->hasChild('data/target.php'));
-        $this->assertEquals(
+        self::assertTrue($this->project->hasChild('data/target.php'));
+        self::assertEquals(
             'TEST',
             file_get_contents(vfsStream::url('project-root/data/target.php'))
         );
