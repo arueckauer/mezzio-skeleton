@@ -46,12 +46,14 @@ class HomePageResponseTest extends OptionalPackagesTestCase
     /** @var OptionalPackages */
     private $installer;
 
+    /** @var string[] */
     private $routerConfigProviders = [
         AuraRouter::class      => AuraRouterConfigProvider::class,
         FastRouteRouter::class => FastRouteRouterConfigProvider::class,
         LaminasRouter::class   => LaminasRouterConfigProvider::class,
     ];
 
+    /** @var string[] */
     private $rendererConfigProviders = [
         PlatesRenderer::class      => PlatesRendererConfigProvider::class,
         TwigRenderer::class        => TwigRendererConfigProvider::class,
@@ -59,12 +61,14 @@ class HomePageResponseTest extends OptionalPackagesTestCase
     ];
 
     // $intallType, $intallType
+    /** @var array */
     private $intallTypes = [
         OptionalPackages::INSTALL_FLAT    => OptionalPackages::INSTALL_FLAT,
         OptionalPackages::INSTALL_MODULAR => OptionalPackages::INSTALL_MODULAR,
     ];
 
     // $rendererOption, $rendererClass
+    /** @var array[] */
     private $rendererTypes = [
         'plates'       => [1, PlatesRenderer::class],
         'twig'         => [2, TwigRenderer::class],
@@ -72,12 +76,14 @@ class HomePageResponseTest extends OptionalPackagesTestCase
     ];
 
     // $routerOption, $routerClass
+    /** @var array[] */
     private $routerTypes = [
         'aura-router'    => [1, AuraRouter::class],
         'fastroute'      => [2, FastRouteRouter::class],
         'laminas-router' => [3, LaminasRouter::class],
     ];
 
+    /** @var string[][] */
     private $expectedRouterAttributes = [
         AuraRouter::class      => [
             'routerName' => 'Aura.Router',
@@ -94,6 +100,7 @@ class HomePageResponseTest extends OptionalPackagesTestCase
     ];
 
     // $containerOption, $containerClass
+    /** @var array[] */
     private $containerTypes = [
         'aura-di'                => [1, AuraDiContainer::class],
         'pimple'                 => [2, PimpleContainer::class],
@@ -104,6 +111,7 @@ class HomePageResponseTest extends OptionalPackagesTestCase
         'chubbyphp-container'    => [7, ChubbyphpContainer::class],
     ];
 
+    /** @var string[][] */
     private $expectedContainerAttributes = [
         AuraDiContainer::class                => [
             'containerName' => 'Aura.Di',
